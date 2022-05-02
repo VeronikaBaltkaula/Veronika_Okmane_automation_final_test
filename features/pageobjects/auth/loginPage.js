@@ -1,5 +1,5 @@
 //  import { BasePage } from '../common/BasePage'
-const BasePage = require('../common/basePage');
+const BasePage = require('../common/BasePage');
 class LoginPage extends BasePage {
     constructor() {
         super();
