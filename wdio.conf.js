@@ -1,3 +1,11 @@
+// const CustomerServiceTest = require("./features/test-objects/CustomerServiceTest");
+// const LoginTest = require("./features/test-objects/LoginTest");
+const NavigationTest = require("./features/test-objects/NavigationTest");
+const OtherTest = require("./features/test-objects/OtherTest");
+// const RegisterTest = require("./features/test-objects/RegisterTest");
+
+const Storage = require("./features/support/data/Storage");
+// const ShoppingTest = require("./features/test-objects/ShoppingTest");
 exports.config = {
     //
     // ====================
@@ -22,9 +30,14 @@ exports.config = {
     //
     specs: [
         './features/**/*.feature'
+        // './features/**/Auth.feature',
+        // './features/**/Shopping.feature'
+        // './features/**/CustomerService.feature'
+        // './features/**/SideMenu.feature'
     ],
     // Patterns to exclude.
     exclude: [
+        // './features/**/Auth.feature'
         // 'path/to/excluded/files'
     ],
     //
@@ -43,7 +56,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -54,9 +67,12 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        maxInstances: 1,
         //
         browserName: 'chrome',
+        'goog:chromeOptions': {
+            args: ["--window-size=1920, 1080"]
+        },
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -94,7 +110,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://demo.owasp-juice.shop/#/',
+    baseUrl: 'http://localhost:3000',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -132,14 +148,26 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec', 
+    ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+        useCucumberStepReporter: true
+    }]
+],
 
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/*.js'],
+        require: [
+            './features/step-definitions/**/*.js',
+            './features/page-objects/**/*.js',
+            './features/support/**/*.js',
+            './features/common/**/*.js'
+            ],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -159,7 +187,8 @@ exports.config = {
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
-        ignoreUndefinedDefinitions: false
+        ignoreUndefinedDefinitions: false,
+        compiler: ['js:babel-register']
     },
     
     //
@@ -214,8 +243,10 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+     before: function (capabilities, specs) {  
+        browser.maximizeWindow();
+        global.expect = require('chai').use(require('chai-as-promised')).use(require('chai-string')).expect;
+        },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -238,8 +269,15 @@ exports.config = {
      * @param {ITestCaseHookParameter} world    world object containing information on pickle and test step
      * @param {Object}                 context  Cucumber World object
      */
-    // beforeScenario: function (world, context) {
-    // },
+    beforeScenario: function (world, context) {
+        const storage = new Storage();
+        // context.customerServiceTest = new CustomerServiceTest(storage);
+        context.navigationTest = new NavigationTest(storage);
+        // context.loginTest = new LoginTest(storage);
+        context.otherTest = new OtherTest(storage);
+        // context.registerTest = new RegisterTest(storage);
+        // context.shoppingTest = new ShoppingTest(storage);
+    },
     /**
      *
      * Runs before a Cucumber Step.
@@ -272,8 +310,10 @@ exports.config = {
      * @param {number}                 result.duration  duration of scenario in milliseconds
      * @param {Object}                 context          Cucumber World object
      */
-    // afterScenario: function (world, result, context) {
-    // },
+    afterScenario: function (world, result, context) {
+        browser.reloadSession();
+        browser.maximizeWindow();
+    },
     /**
      *
      * Runs after a Cucumber Feature.
