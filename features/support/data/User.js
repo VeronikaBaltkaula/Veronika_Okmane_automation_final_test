@@ -1,5 +1,5 @@
 class User {
-    constructor(emailArg = "yurka32@mailinator.com", passwordArg = "pppppp") {
+    constructor(emailArg = "nika1011@inbox.lv", passwordArg = "pppppp") {
         this.email = emailArg;
         this.password = passwordArg;
     }

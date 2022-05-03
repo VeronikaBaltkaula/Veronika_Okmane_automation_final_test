@@ -2,11 +2,11 @@ Feature: First Scenario
 
   Scenario: Atempt to register with already registered user
     Given I open landing page
-    # And I have registered account
-    # And I have logged out
-    # When I press on Account button
-    # And I press log in
-    # When I press not yet a customer
+    And I have registered account
+    And I have logged out
+    When I press on Account button
+    And I press log in
+    When I press not yet a customer
     # And I enter email address
     # And I enter password
     # And I enter password reapeatedly

@@ -1,8 +1,8 @@
 // const CustomerServiceTest = require("./features/test-objects/CustomerServiceTest");
-// const LoginTest = require("./features/test-objects/LoginTest");
+const LoginTest = require("./features/test-objects/LoginTest");
 const NavigationTest = require("./features/test-objects/NavigationTest");
 const OtherTest = require("./features/test-objects/OtherTest");
-// const RegisterTest = require("./features/test-objects/RegisterTest");
+const RegisterTest = require("./features/test-objects/RegisterTest");
 
 const Storage = require("./features/support/data/Storage");
 // const ShoppingTest = require("./features/test-objects/ShoppingTest");
@@ -273,9 +273,9 @@ exports.config = {
         const storage = new Storage();
         // context.customerServiceTest = new CustomerServiceTest(storage);
         context.navigationTest = new NavigationTest(storage);
-        // context.loginTest = new LoginTest(storage);
+        context.loginTest = new LoginTest(storage);
         context.otherTest = new OtherTest(storage);
-        // context.registerTest = new RegisterTest(storage);
+        context.registerTest = new RegisterTest(storage);
         // context.shoppingTest = new ShoppingTest(storage);
     },
     /**

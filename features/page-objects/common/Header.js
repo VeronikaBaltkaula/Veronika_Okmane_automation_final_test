@@ -12,6 +12,7 @@ class Header {
         this.buttonCloseSearch = () => browser.$('//mat-icon[contains(text(), "close")]');
         this.searchBar = () => browser.$('//mat-search-bar//input');
         this.logo = () => browser.$('//img[@class = "logo"]');
+        this.buttonLogOut = () => browser.$('#navbarLogoutButton');
     }
 }
 
