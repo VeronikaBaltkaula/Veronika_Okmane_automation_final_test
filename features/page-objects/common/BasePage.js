@@ -10,6 +10,7 @@ class BasePage {
         this.buttonDismissWelcomeBanner = () => browser.$('[aria-label="Close Welcome Banner"]');
         this.buttonDismissCookies = () => browser.$('[aria-label="dismiss cookie message"]');
         this.popUpReloadAfterLangChange = () => browser.$('//*[text()="Force page reload"]');
+        
     }
 
     waitForLoad() {

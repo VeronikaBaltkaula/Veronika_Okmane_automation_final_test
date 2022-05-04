@@ -7,11 +7,11 @@ Feature: First Scenario
     When I press on Account button
     And I press log in
     When I press not yet a customer
-    # And I enter email address
-    # And I enter password
-    # And I enter password reapeatedly
-    # And I select security question about elder sibling
-    # And I enter answer
-    # And I press register button
-    # Then I see message about email must be unique
-    # And I am in register page
+    And I enter email address
+    And I enter password
+    And I enter password reapeatedly
+    And I select security question about elder sibling
+    And I enter answer
+    And I press register button
+    Then I see message about email must be unique
+    And I am in register page

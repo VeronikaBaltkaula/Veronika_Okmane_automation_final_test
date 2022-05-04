@@ -8,12 +8,12 @@ class LoginTest {
         this.storage = storageArg;
     }
     inputLoginEmail() {
-        //emailArg = "nika1011@inbox.lv"
+        // emailArg = "nika1011@inbox.lv"
         this.loginPage.inputFieldEmail().waitForDisplayed();
         this.loginPage.inputFieldEmail().setValue(this.storage.user.email);
     } 
     inputLoginPassword() {
-        //passwArg = "pppppp"
+        // passwArg = "pppppp"
         this.loginPage.inputFieldPassword().waitForDisplayed();
         this.loginPage.inputFieldPassword().setValue(this.storage.user.password);
     }
@@ -23,12 +23,21 @@ class LoginTest {
     }
 
     validateUserIsLoggedIn() {
-        this.basePage.header.buttonBasket().waitForDisplayed();
+        // this.basePage.header.buttonBasket().waitForDisplayed();
         this.basePage.header.buttonAccount().waitForDisplayed();
         this.basePage.header.buttonAccount().click();
         const actualEmail = this.basePage.header.buttonUserAccount().getText();
         expect(actualEmail).to.include(this.storage.user.email);
         browser.keys("Escape");
     }
+    clickOnButtonLogOut() {
+        this.basePage.header.buttonLogOut().waitForDisplayed();
+        this.basePage.header.buttonLogOut().click();
+    }
+    clickOnButtonForgotPassword(){
+this.loginPage.ButtonForgotPassword().waitForDisplayed();
+this.loginPage.ButtonForgotPassword().click();
+    }
+    
 }
 module.exports = LoginTest;

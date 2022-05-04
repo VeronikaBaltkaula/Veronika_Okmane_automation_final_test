@@ -14,39 +14,43 @@ class RegisterTest {
         this.loginPage.linkRegister().click();
     }
 
-//     clickRegisterButton() {
-//         this.registerPage.buttonRegister().waitForDisplayed()
-//         this.registerPage.buttonRegister().click()
-//     }
+    inputEmailAddress(emailArg = "nika1011@inbox.lv") { 
+        this.registerPage.inputFieldEmail().waitForDisplayed();
+        this.registerPage.inputFieldEmail().setValue(emailArg);
+        this.storage.user.email = emailArg;
+    }
 
-//     inputEmailAddress(emailArg = "nika1011@inbox.lv") { 
-//         this.registerPage.inputFieldEmail().waitForDisplayed();
-//         this.registerPage.inputFieldEmail().setValue(emailArg);
-//         this.storage.user.email = emailArg;
-//     }
+    inputPassword(passwArg = "pppppp") {
+        this.registerPage.inputFieldPassword().waitForDisplayed();
+        this.registerPage.inputFieldPassword().setValue(passwArg);
+        this.storage.user.password = passwArg;
+    }
 
-//     inputPassword(passwArg = "pppppp") {
-//         this.registerPage.inputFieldPassword().waitForDisplayed();
-//         this.registerPage.inputFieldPassword().setValue(passwArg);
-//         this.storage.user.password = passwArg;
-//     }
+    inputPasswordRepeat() {
+        this.registerPage.inputFieldPasswordConfirm().waitForDisplayed();
+        this.registerPage.inputFieldPasswordConfirm().setValue(this.storage.user.password);
+    }
 
-//     inputPasswordRepeat() {
-//         this.registerPage.inputFieldPasswordConfirm().waitForDisplayed();
-//         this.registerPage.inputFieldPasswordConfirm().setValue(this.storage.user.password);
-//     }
+    selectSecurityQuestion(questionArg = "Your eldest siblings middle name?") {
+        this.registerPage.selectionSecurityQuestion().waitForDisplayed()
+        this.registerPage.selectionSecurityQuestion().click()
+        this.registerPage.optionSecurityQuestion(questionArg).waitForDisplayed()
+        this.registerPage.optionSecurityQuestion(questionArg).click()
+    }
 
-//     inputSecurityAnswer(answerArg = "pppppp") {
-//         this.registerPage.inputFieldAnswer().waitForDisplayed()
-//         this.registerPage.inputFieldAnswer().setValue(answerArg)
-//     }
+    inputSecurityAnswer(answerArg = "nbvcmo") {
+        this.registerPage.inputFieldAnswer().waitForDisplayed()
+        this.registerPage.inputFieldAnswer().setValue(answerArg)
+    }
 
-//     selectSecurityQuestion(questionArg = "Your eldest siblings middle name?") {
-//         this.registerPage.selectionSecurityQuestion().waitForDisplayed()
-//         this.registerPage.selectionSecurityQuestion().click()
-//         this.registerPage.optionSecurityQuestion(questionArg).waitForDisplayed()
-//         this.registerPage.optionSecurityQuestion(questionArg).click()
-//     }
+    validatEmailUsedMessage(){
+        this.registerPage.emailUsedMessage().waitForDisplayed();
+    }
+    clickRegisterButton() {
+        this.registerPage.buttonRegister().waitForDisplayed()
+        this.registerPage.buttonRegister().click()
+};
+
 }
 
 module.exports = RegisterTest;

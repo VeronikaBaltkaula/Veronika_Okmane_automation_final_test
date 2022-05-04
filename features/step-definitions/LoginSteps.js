@@ -1,7 +1,7 @@
 const {Given, Then, When} = require('@wdio/cucumber-framework');
 
 
-Given(/^I have registered account$/, function() {
+When(/^I have registered account$/, function() {
     this.navigationTest.clickOnHeaderButtonAccount();
     this.navigationTest.clickOnHeaderButtonLogin();
     this.navigationTest.validateUserIsOnLoginPage();
@@ -11,9 +11,11 @@ Given(/^I have registered account$/, function() {
     this.loginTest.validateUserIsLoggedIn();
 });
 
-Given(/^I press log in$/, function() {
+When(/^I press log in$/, function() {
     this.navigationTest.clickOnHeaderButtonLogin();
 });
 
-
+// When(/^And I press 'forgot password'$/, function() {
+//     this.loginTest.clickOnButtonForgotPassword();
+// });
 
