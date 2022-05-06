@@ -22,5 +22,9 @@ When(/^I press 'forgot password'$/, function() {
     this.navigationTest.clickOnLinkForgotPassword();
 });
 
+// When(/^I enter email in forgot email page$/, function() {
+//     this.loginTest.inputLoginEmailInForgotPasswordPage();
+// });
+
 
 

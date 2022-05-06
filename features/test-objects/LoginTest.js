@@ -31,17 +31,33 @@ class LoginTest {
         expect(actualEmail).to.include(this.storage.user.email);
         browser.keys("Escape");
     }
-    // clickOnButtonLogOut() {
-    //     this.basePage.header.buttonLogOut().waitForDisplayed();
-    //     this.basePage.header.buttonLogOut().click();
-    //     this.basePage.header.buttonBasket().waitForDisplayed({reverse:true});
-    //     this.basePage.waitForLoad();
-    //     browser.pause(10000);
-    // }
-//     clickOnButtonForgotPassword(){
-// this.loginPage.ButtonForgotPassword().waitForDisplayed();
-// this.loginPage.ButtonForgotPassword().click();
-//     }
-    
+    inputEmailInForgotPasswordPage() {
+        // emailArg = "nika1011@inbox.lv"
+        this.loginPage.inputEmailInForgotPasswordPage().waitForDisplayed();
+        this.loginPage.inputEmailInForgotPasswordPage().setValue(this.storage.user.email);
 }
+clickOnSecurityQuestionField() {
+    this.loginPage.clickOnSecurityQuestionField().waitForDisplayed();
+    this.loginPage.clickOnSecurityQuestionField().waitForClickable();
+    this.loginPage.clickOnSecurityQuestionField().click();
+}
+validateSecurityQuestion() {
+    this.loginPage.waitForLoad();
+}
+inputSecurityQuestion(questionArg = "Your eldest siblings middle name") {
+    this.loginPage.inputSecurityQuestion().waitForDisplayed();
+    this.loginPage.inputSecurityQuestion().setValue(questionArg);
+}
+inputNewPassword(newpasswordArg = "aaaaaa") {
+    this.loginPage.inputNewPassword().waitForDisplayed();
+    this.loginPage.inputNewPassword().setValue(newpasswordArg);
+}
+inputNewPasswordConfirm(newpasswordArg){
+    this.loginPage.inputNewPasswordConfirm().waitForDisplayed();
+    this.loginPage.inputNewPasswordConfirm().setValue(newpasswordArg);
+
+}
+}
+
+
 module.exports = LoginTest;

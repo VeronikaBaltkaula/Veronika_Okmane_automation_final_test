@@ -38,6 +38,11 @@ class NavigationTest {
         browser.url('http://localhost:3000/#/forgot-password');
         
     }
+//     inputLoginEmailInForgotPasswordPage() {
+//         // emailArg = "nika1011@inbox.lv"
+//         this.loginPage.loginEmailInForgotPasswordPage().waitForDisplayed();
+//         this.loginPage.loginEmailInForgotPasswordPage().setValue(this.storage.user.email);
+// }
 }
 
 

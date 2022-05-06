@@ -22,6 +22,12 @@ class LoginPage extends BasePage {
         // this.checkboxRememberMe = () => browser.$('label.mat-checkbox-layout');
         // //this.linkRegister = () => browser.$('//a[@class="primary-link"]'); //xpath
         this.linkRegister = () => browser.$('[href="#/register"]'); //css
+        this.inputEmailInForgotPasswordPage = () => browser.$('[aria-label="Email address field"]');
+        this.clickOnSecurityQuestionField = () => browser.$('[aria-label="Field for the answer to the security question"]');
+        this.securityQuestion = () => browser.$('[aria-label="Field for the answer to the security question"]');
+        this.inputSecurityQuestion = () => browser.$('[aria-label="Field for the answer to the security question"]');
+        this.inputNewPassword = () => browser.$('//*[@id="forgot-form"]/mat-form-field[2]/div/div[1]/div[2]');
+        this.inputNewPasswordConfirm = () => browser.$('[aria-label="Field to confirm the new password"]');
     }
 
 //     waitForLoad() {
