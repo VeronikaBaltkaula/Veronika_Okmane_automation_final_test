@@ -7,7 +7,7 @@ Given(/^I open landing page$/, function () {
 
 When(/^I have logged out$/, function() {
     this.navigationTest.clickOnHeaderButtonAccount();
-    this.navigationTest.clickOnHeaderButtonLogOut();
+    this.navigationTest.clickOnButtonLogOut();
  });
  
  Then(/^I press on Account button$/, function() {
@@ -16,6 +16,10 @@ When(/^I have logged out$/, function() {
 
  Given(/^I am on login page$/, function () {
     this.navigationTest.validateUserIsOnLoginPage();
+});
+
+When(/^I press 'forgot password'$/, function() {
+    this.navigationTest.clickOnLinkForgotPassword();
 });
 
 

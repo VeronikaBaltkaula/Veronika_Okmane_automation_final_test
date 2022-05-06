@@ -1,4 +1,5 @@
 const {Then, When} = require('@wdio/cucumber-framework');
+const { default: debug } = require('webdriverio/build/commands/browser/debug');
 
 Then(/^I press not yet a customer$/, function() {
     this.registerTest.clickNotYetACustomer();
@@ -22,7 +23,7 @@ When(/^I select security question about elder sibling$/, function() {
  });
 
  When(/^I enter answer$/, function() {
-    this.registerTest.inputSecurityAnswer("nbvcmo");
+    this.registerTest.inputSecurityAnswer("vika");
 });
 
 When(/^I press register button$/, function() {
@@ -36,4 +37,16 @@ When(/^I see message about email must be unique$/, function() {
 
 Then(/^I am in register page$/, function() {
     this.registerTest.clickRegisterButton();
-})
+});
+
+When(/^I have registered account$/, function() {
+
+    this.navigationTest.clickOnHeaderButtonAccount();
+    this.navigationTest.clickOnHeaderButtonLogin();
+    this.navigationTest.validateUserIsOnLoginPage();
+    this.loginTest.inputLoginEmail();
+    this.loginTest.inputLoginPassword();
+    this.loginTest.confirmLogin();
+    this.loginTest.validateUserIsLoggedIn();
+});
+

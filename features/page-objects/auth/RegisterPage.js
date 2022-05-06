@@ -15,6 +15,8 @@ class RegisterPage extends BasePage {
         this.linkLogin = () => browser.$('[href="#/login"]');
         this.emailUsedMessage = () => browser.$('//div[text()="Email must be unique"]');
         
+            
+        
     }
 
     

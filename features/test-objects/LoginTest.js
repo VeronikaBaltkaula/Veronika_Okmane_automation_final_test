@@ -23,21 +23,25 @@ class LoginTest {
     }
 
     validateUserIsLoggedIn() {
-        // this.basePage.header.buttonBasket().waitForDisplayed();
+        this.basePage.header.buttonBasket().waitForDisplayed();
+        // browser.debug();
         this.basePage.header.buttonAccount().waitForDisplayed();
         this.basePage.header.buttonAccount().click();
         const actualEmail = this.basePage.header.buttonUserAccount().getText();
         expect(actualEmail).to.include(this.storage.user.email);
         browser.keys("Escape");
     }
-    clickOnButtonLogOut() {
-        this.basePage.header.buttonLogOut().waitForDisplayed();
-        this.basePage.header.buttonLogOut().click();
-    }
-    clickOnButtonForgotPassword(){
-this.loginPage.ButtonForgotPassword().waitForDisplayed();
-this.loginPage.ButtonForgotPassword().click();
-    }
+    // clickOnButtonLogOut() {
+    //     this.basePage.header.buttonLogOut().waitForDisplayed();
+    //     this.basePage.header.buttonLogOut().click();
+    //     this.basePage.header.buttonBasket().waitForDisplayed({reverse:true});
+    //     this.basePage.waitForLoad();
+    //     browser.pause(10000);
+    // }
+//     clickOnButtonForgotPassword(){
+// this.loginPage.ButtonForgotPassword().waitForDisplayed();
+// this.loginPage.ButtonForgotPassword().click();
+//     }
     
 }
 module.exports = LoginTest;

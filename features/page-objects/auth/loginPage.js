@@ -11,7 +11,7 @@ class LoginPage extends BasePage {
         //input[@aria-label="Text field for the login password"]
         //input[contains(@aria-label, "password")]           
         this.title = () => browser.$('//h1[text() = "Login"]');
-        // // this.linkForgotPassword = () => browser.$('//a[text() = "Forgot your password?"]'); //xpath
+        // this.linkForgotPassword = () => browser.$('//a[text() = "Forgot your password?"]'); //xpath
         this.linkForgotPassword = () => browser.$('[href="#/forgot-password"]'); //css
         // //a[contains(@class, "forgot-pw")]
         // this.buttonLogin = () => browser.$('//button[@id="loginButton"]//span[@class="mat-button-wrapper"]');

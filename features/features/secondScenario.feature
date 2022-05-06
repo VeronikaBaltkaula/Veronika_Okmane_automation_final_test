@@ -1,13 +1,13 @@
-# Feature: Second Scenario
-# Scenario: Forgot password
+Feature: Second Scenario
+Scenario: Forgot password
 
-#  Given I open landing page
-#  And I have registered account
-#  And I have logged out
-#  And I press on Account button
-#  And I press log in
-#  When I am on login page
-#  And I press 'forgot password'
+ Given I open landing page
+ And I have registered account
+ And I have logged out
+ And I press on Account button
+ And I press log in
+ When I am on login page
+ And I press 'forgot password'
 #  And I enter email in forgot email page
 #  And I click on security question field
 #  And I see security question

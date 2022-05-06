@@ -12,20 +12,33 @@ class NavigationTest {
 
     clickOnHeaderButtonAccount() {
         this.basePage.header.buttonAccount().waitForDisplayed();
+        this.basePage.header.buttonAccount().waitForClickable();
         this.basePage.header.buttonAccount().click();
     }
 
     clickOnHeaderButtonLogin() {
-        this.basePage.header.buttonLogin().waitForDisplayed();
-        this.basePage.header.buttonLogin().click();
+        this.basePage.header.buttonLogIn().waitForDisplayed();
+        this.basePage.header.buttonLogIn().click();
     }
     validateUserIsOnLoginPage() {
         this.loginPage.waitForLoad();
     }
-    clickOnHeaderButtonLogOut() {
+    clickOnButtonLogOut() {
         this.basePage.header.buttonLogOut().waitForDisplayed();
         this.basePage.header.buttonLogOut().click();
+        this.basePage.header.buttonBasket().waitForDisplayed({reverse:true});
+        this.basePage.waitForLoad();
+        
+    }
+    clickOnLinkForgotPassword() {
+        this.basePage.linkForgotPassword().waitForDisplayed();
+        this.basePage.linkForgotPassword().scrollIntoView();
+        // this.basePage.linkForgotPassword().waitForClickable();
+        // this.basePage.linkForgotPassword().click();
+        browser.url('http://localhost:3000/#/forgot-password');
+        
     }
 }
-    
+
+
 module.exports = NavigationTest;

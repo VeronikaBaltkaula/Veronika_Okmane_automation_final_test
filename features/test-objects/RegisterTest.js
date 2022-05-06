@@ -38,7 +38,7 @@ class RegisterTest {
         this.registerPage.optionSecurityQuestion(questionArg).click()
     }
 
-    inputSecurityAnswer(answerArg = "nbvcmo") {
+    inputSecurityAnswer(answerArg = "vika") {
         this.registerPage.inputFieldAnswer().waitForDisplayed()
         this.registerPage.inputFieldAnswer().setValue(answerArg)
     }
@@ -52,5 +52,7 @@ class RegisterTest {
 };
 
 }
+
+
 
 module.exports = RegisterTest;
