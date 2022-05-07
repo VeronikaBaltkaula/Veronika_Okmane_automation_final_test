@@ -1,3 +1,4 @@
+const { default: click } = require("webdriverio/build/commands/element/click");
 const LoginPage = require("../page-objects/auth/LoginPage");
 const BasePage = require("../page-objects/common/BasePage");
 // const ComplaintPage = require("../page-objects/customerservice/ComplaintPage");
@@ -36,14 +37,18 @@ class NavigationTest {
         // this.basePage.linkForgotPassword().waitForClickable();
         // this.basePage.linkForgotPassword().click();
         browser.url('http://localhost:3000/#/forgot-password');
-        
     }
-//     inputLoginEmailInForgotPasswordPage() {
-//         // emailArg = "nika1011@inbox.lv"
-//         this.loginPage.loginEmailInForgotPasswordPage().waitForDisplayed();
-//         this.loginPage.loginEmailInForgotPasswordPage().setValue(this.storage.user.email);
-// }
-}
+    
+    clickOnButtonOrdersPayment() {
+        this.basePage.buttonOrdersPayment().waitForDisplayed();
+        this.basePage.buttonOrdersPayment().click();
+    }
+    
+    clickOnButtonMyPaymentOptions() {
+        this.basePage.buttonMyPaymentOptions().waitForDisplayed();
+        this.basePage.buttonMyPaymentOptions().click();
+    }
 
+}
 
 module.exports = NavigationTest;

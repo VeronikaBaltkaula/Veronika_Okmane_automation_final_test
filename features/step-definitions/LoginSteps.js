@@ -24,4 +24,10 @@ When(/^I enter security question$/, function() {
 When(/^I enter new password and confirm$/, function() {
     this.loginTest.inputNewPassword();
     this.loginTest.inputNewPasswordConfirm();
+    this.loginTest.clickOnButtonChange();
 });
+
+When(/^I see message about succesfully changed password$/, function() {
+    this.loginTest.validateSuccesfullyChangedPasswordMessage();
+});
+

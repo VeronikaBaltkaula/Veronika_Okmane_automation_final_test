@@ -1,4 +1,3 @@
-// import {BasePage} from '../common/BasePage'
 const BasePage = require('../common/BasePage');
 class RegisterPage extends BasePage {
     constructor() {
@@ -13,13 +12,8 @@ class RegisterPage extends BasePage {
         this.inputFieldAnswer = () => browser.$('#securityAnswerControl');
         this.buttonRegister = () => browser.$('button#registerButton');
         this.linkLogin = () => browser.$('[href="#/login"]');
-        this.emailUsedMessage = () => browser.$('//div[text()="Email must be unique"]');
-        
-            
-        
-    }
-
-    
+        this.emailUsedMessage = () => browser.$('//div[text()="Email must be unique"]');  
+    }    
 }
 
 module.exports = RegisterPage;

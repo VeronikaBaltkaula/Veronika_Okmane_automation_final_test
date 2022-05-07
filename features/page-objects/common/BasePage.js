@@ -1,5 +1,3 @@
-// import {Header} from './Header';
-// import {Footer} from './Footer';
 const Header = require("./Header");
 const Footer = require("./Footer");
 
@@ -11,6 +9,9 @@ class BasePage {
         this.buttonDismissCookies = () => browser.$('[aria-label="dismiss cookie message"]');
         this.popUpReloadAfterLangChange = () => browser.$('//*[text()="Force page reload"]');
         this.linkForgotPassword = () => browser.$('[class="primary-link forgot-pw"]');
+        this.buttonChange = () => browser.$('[aria-label="Button to confirm the changes"]');
+        this.buttonOrdersPayment = () => browser.$ ('#mat-menu-panel-0 > .mat-menu-content > [aria-label="Show Orders and Payment Menu"] ');
+        this.buttonMyPaymentOptions = () => browser.$ ('[aria-label="Go to saved payment methods page"]');
     }
 
     waitForLoad() {

@@ -37,27 +37,41 @@ class LoginTest {
         this.loginPage.inputEmailInForgotPasswordPage().setValue(this.storage.user.email);
 }
 clickOnSecurityQuestionField() {
-    this.loginPage.clickOnSecurityQuestionField().waitForDisplayed();
-    this.loginPage.clickOnSecurityQuestionField().waitForClickable();
-    this.loginPage.clickOnSecurityQuestionField().click();
+    this.loginPage.securityQuestionField().waitForDisplayed();
+    this.loginPage.securityQuestionField().waitForClickable();
+    this.loginPage.securityQuestionField().click();
 }
 validateSecurityQuestion() {
     this.loginPage.waitForLoad();
 }
-inputSecurityQuestion(questionArg = "Your eldest siblings middle name") {
-    this.loginPage.inputSecurityQuestion().waitForDisplayed();
-    this.loginPage.inputSecurityQuestion().setValue(questionArg);
-}
-inputNewPassword(newpasswordArg = "aaaaaa") {
-    this.loginPage.inputNewPassword().waitForDisplayed();
-    this.loginPage.inputNewPassword().setValue(newpasswordArg);
-}
-inputNewPasswordConfirm(newpasswordArg){
-    this.loginPage.inputNewPasswordConfirm().waitForDisplayed();
-    this.loginPage.inputNewPasswordConfirm().setValue(newpasswordArg);
-
-}
+inputSecurityQuestion(questionArg = "vika") {
+    this.loginPage.securityQuestionField().waitForDisplayed();
+    this.loginPage.securityQuestionField().setValue(questionArg);
+    
 }
 
+inputNewPassword(newpasswordArg = "pppppp") {
+    this.loginPage.newPasswordField().waitForDisplayed();
+    this.loginPage.newPasswordField().setValue(newpasswordArg);
+}
+
+inputNewPasswordConfirm(newpasswordArg = "pppppp" ) {
+    this.loginPage.newPasswordConfirmField().waitForDisplayed();
+    this.loginPage.newPasswordConfirmField().setValue(newpasswordArg);
+}
+
+clickOnButtonChange() {
+    this.basePage.buttonChange().waitForDisplayed();
+    this.basePage.buttonChange().click();
+}    
+validateSuccesfullyChangedPasswordMessage() {
+this.loginPage.succesfullyChangedPasswordMessage().isDisplayed();
+
+}
+clickOnLogIn() {
+    this.loginPage.buttonLogIn().waitForDisplayed();
+    this.loginPage.buttonLogIn().click();
+}
+}
 
 module.exports = LoginTest;
