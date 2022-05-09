@@ -12,6 +12,12 @@ class BasePage {
         this.buttonChange = () => browser.$('[aria-label="Button to confirm the changes"]');
         this.buttonOrdersPayment = () => browser.$ ('#mat-menu-panel-0 > .mat-menu-content > [aria-label="Show Orders and Payment Menu"] ');
         this.buttonMyPaymentOptions = () => browser.$ ('[aria-label="Go to saved payment methods page"]');
+        this.buttonAddToBasket = () => browser.$('[aria-label="Add to Basket"]');
+        this.buttonCheckout = () => browser.$('button#checkoutButton');
+        this.buttonContinue = () => browser.$('[aria-label="Proceed to payment selection"]');
+        this.buttonOneDayDelivery = () => browser.$('[aria-label="Proceed to payment selection"]');
+
+
     }
 
     waitForLoad() {
