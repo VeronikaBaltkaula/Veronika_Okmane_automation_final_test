@@ -44,4 +44,49 @@ When(/^I add address information and submit$/, function () {
 //     this.navigationTest.clickOnButtonOrdersPayment();
 // });
 
-    
+When(/^I add 'Best Juice Shop Salesman Artwork' to basket and checkout$/, function () {
+    // browser.url("http://localhost:3000/#/");
+    // this.otherTest.dismissInitialPopus();
+    this.myPaymentOptionTest.clickOnButtonJuiceShop();
+    this.myPaymentOptionTest.clickOnSearchBar();
+    this.myPaymentOptionTest.inputPriceName();
+    this.myPaymentOptionTest.clickOnButtonAddToBasket();
+    this.myPaymentOptionTest.clickOnButtonMyBasket();
+    this.myPaymentOptionTest.clickOnButtonCheckout();
+});
+
+When(/^I choose saved address$/, function () {
+    this.myPaymentOptionTest.clickOnButtonChooseSavedAddress();
+    this.myPaymentOptionTest.clickOnButtonContinueAddress();
+});
+
+When(/^I choose 'One day delivery'$/, function () {
+    this.myPaymentOptionTest.clickOnButtonOneDayDelivery();
+    this.myPaymentOptionTest.clickOnButtonContinueDelivery();
+});
+
+When(/^I choose saved card$/, function () {
+    this.myPaymentOptionTest.clickOnButtonChooseSavedCard();
+    this.myPaymentOptionTest.clickOnButtonContinueCard();
+});
+
+When(/^I place order and pay$/, function () {
+    this.myPaymentOptionTest.clickOnButtonPlaceOrderAndPay();
+    this.myPaymentOptionTest.clickOnButtonContinueOrder();
+});
+
+When(/^I am in order completion page$/, function () {
+    this.myPaymentOptionTest.validateOrderCompletionPage();
+});
+
+When(/^I see correct order address$/, function () {
+    this.myPaymentOptionTest.validateCorrectOrderAddress();
+});
+
+When(/^I see order details$/, function () {
+    this.myPaymentOptionTest.validateOrderDetails();
+});
+
+When(/^I see end total price$/, function () {
+    this.myPaymentOptionTest.validateTotalPrice();
+});

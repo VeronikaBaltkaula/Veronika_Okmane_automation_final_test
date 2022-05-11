@@ -16,7 +16,8 @@ class BasePage {
         this.buttonCheckout = () => browser.$('button#checkoutButton');
         this.buttonContinue = () => browser.$('[aria-label="Proceed to payment selection"]');
         this.buttonOneDayDelivery = () => browser.$('[aria-label="Proceed to payment selection"]');
-
+        //this.searchBar = () => browser.$('//mat-search-bar//input');
+        this.searchBar = () => browser.$('//mat-icon[contains(text(), "search")]');
 
     }
 

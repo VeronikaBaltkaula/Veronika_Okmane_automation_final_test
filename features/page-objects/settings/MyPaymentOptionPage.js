@@ -22,6 +22,16 @@ class MyPaymentOptionPage extends BasePage {
         this.confirmationMessageAboutCardInfo = () => browser.$('span.mat-simple-snack-bar-content');
         this.buttonMySavedAddressesOption = () => browser.$('[aria-label="Go to saved address page"]');
         this.buttonNewAddress = () => browser.$('[aria-label="Add a new address"]');
+        this.buttonJuiceShop = () => browser.$('//span[contains(text(), " OWASP Juice Shop")]'); 
+        this.priceName = () => browser.$('//mat-search-bar//input');
+        this.buttonChooseSavedAddress = () => browser.$('');
+        this.buttonContinueAddress = () => browser.$('');
+        this.buttonOneDayDelivery = () => browser.$('');
+        this.buttonContinueDelivery = () => browser.$('');
+        this.buttonChooseSavedCard = () => browser.$('');
+        this.buttonContinueCard = () => browser.$('');
+        this.buttonPlaceOrderAndPay = () => browser.$('');
+        this.buttonContinueOrder = () => browser.$('');
     }
 }
 
