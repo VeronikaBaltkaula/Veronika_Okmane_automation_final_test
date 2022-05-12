@@ -112,7 +112,7 @@ class MyPaymentOptionTest {
         this.basePage.searchBar().waitForDisplayed();
         this.basePage.searchBar().click();
     }
-    inputPriceName(priceArg = "Best Juice Shop Salesman Artwork") { // Best Juice Shop Salesman Artwork Apple Juice
+    inputPriceName(priceArg = "Apple Juice") { // Best Juice Shop Salesman Artwork Apple Juice
         this.myPaymentOptionPage.priceName().setValue(priceArg);
         browser.keys("Enter");
     }
