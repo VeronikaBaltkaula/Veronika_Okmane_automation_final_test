@@ -14,7 +14,7 @@ class RegisterTest {
         this.loginPage.linkRegister().click();
     }
 
-    inputEmailAddress(emailArg = "nika1011@inbox.lv") { 
+    inputEmailAddress(emailArg = "nika1011@inbox.lv") {
         this.registerPage.inputFieldEmail().waitForDisplayed();
         this.registerPage.inputFieldEmail().setValue(emailArg);
         this.storage.user.email = emailArg;
@@ -43,16 +43,14 @@ class RegisterTest {
         this.registerPage.inputFieldAnswer().setValue(answerArg)
     }
 
-    validatEmailUsedMessage(){
+    validatEmailUsedMessage() {
         this.registerPage.emailUsedMessage().waitForDisplayed();
     }
     clickRegisterButton() {
         this.registerPage.buttonRegister().waitForDisplayed()
         this.registerPage.buttonRegister().click()
-};
+    };
 
 }
-
-
 
 module.exports = RegisterTest;

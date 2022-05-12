@@ -40,13 +40,7 @@ When(/^I add address information and submit$/, function () {
     this.myPaymentOptionTest.clickOnButtonAddNewAddressSubmit();
 });
 
-// When(/^I click on 'Orders and Payment' option$/, function () {
-//     this.navigationTest.clickOnButtonOrdersPayment();
-// });
-
 When(/^I add 'Best Juice Shop Salesman Artwork' to basket and checkout$/, function () {
-    // browser.url("http://localhost:3000/#/");
-    // this.otherTest.dismissInitialPopus();
     this.myPaymentOptionTest.clickOnButtonJuiceShop();
     this.myPaymentOptionTest.clickOnSearchBar();
     this.myPaymentOptionTest.inputPriceName();
@@ -72,7 +66,6 @@ When(/^I choose saved card$/, function () {
 
 When(/^I place order and pay$/, function () {
     this.myPaymentOptionTest.clickOnButtonPlaceOrderAndPay();
-    this.myPaymentOptionTest.clickOnButtonContinueOrder();
 });
 
 When(/^I am in order completion page$/, function () {

@@ -22,16 +22,15 @@ class MyPaymentOptionPage extends BasePage {
         this.confirmationMessageAboutCardInfo = () => browser.$('span.mat-simple-snack-bar-content');
         this.buttonMySavedAddressesOption = () => browser.$('[aria-label="Go to saved address page"]');
         this.buttonNewAddress = () => browser.$('[aria-label="Add a new address"]');
-        this.buttonJuiceShop = () => browser.$('//span[contains(text(), " OWASP Juice Shop")]'); 
+        this.buttonJuiceShop = () => browser.$('//span[contains(text(), " OWASP Juice Shop")]');
         this.priceName = () => browser.$('//mat-search-bar//input');
-        this.buttonChooseSavedAddress = () => browser.$('');
-        this.buttonContinueAddress = () => browser.$('');
-        this.buttonOneDayDelivery = () => browser.$('');
-        this.buttonContinueDelivery = () => browser.$('');
-        this.buttonChooseSavedCard = () => browser.$('');
-        this.buttonContinueCard = () => browser.$('');
-        this.buttonPlaceOrderAndPay = () => browser.$('');
-        this.buttonContinueOrder = () => browser.$('');
+        this.buttonChooseSavedAddress = () => browser.$('//mat-row[descendant-or-self::mat-cell[contains(text(), "John")]]//mat-radio-button');
+        this.buttonContinueAddress = () => browser.$('//span[contains(text(), "Continue")]');
+        this.buttonOneDayDelivery = () => browser.$('//mat-row[descendant-or-self::mat-cell[contains(text(), "One Day Delivery")]]//mat-radio-button');
+        this.buttonContinueDelivery = () => browser.$('//span[contains(text(), "Continue")]');
+        this.buttonChooseSavedCard = () => browser.$('//mat-row[descendant-or-self::mat-cell[contains(text(), "John")]]//mat-radio-button');
+        this.buttonContinueCard = () => browser.$('//span[contains(text(), "Continue")]');
+        this.buttonPlaceOrderAndPay = () => browser.$('[aria-label="Complete your purchase"]');
     }
 }
 
