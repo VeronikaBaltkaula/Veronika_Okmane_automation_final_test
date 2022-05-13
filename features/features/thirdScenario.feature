@@ -7,21 +7,16 @@ Scenario: Make a purchase
  And I click on 'My payment Options' option
  And I click add new card button
  And I fill in credit card information and submit
-#  | Name | Card Number | Expirity Month | Exirty year |
-#  | John Goodman | 1234567812345678 | 4 | 2085 |
+ | Name | Card Number | Expirity Month | Exirty year |
+ | John Goodman | 1234567812345678 | 4 | 2085 |
  And I see confirmation message about card info
  When I click on acconut button
  And I click on 'Orders and Payment' option
  And I click on 'My Saved Addresses' option
  And I click on new Address button
  And I add address information and submit
-#  | Country | United States |
-#  | Name | John Goodman |
-#  | Mobile Number | 1234567891 |
-#  | Zip Code | 00000 |
-#  | Address | sunset bv |
-#  | City | Los Angeles |
-#  | State | California |
+ | Country |  Name | Mobile Number | Zip Code | Address | City | State |
+ | John Goodman | United States | 1234567891 | 00000 | sunset bv | Los Angeles | California |
 And I add 'Best Juice Shop Salesman Artwork' to basket and checkout
 And I choose saved address
 And I choose 'One day delivery'
@@ -32,7 +27,7 @@ And I see correct order address
 And I see order details
 #  | Product | Price | Quantity | Total Price |
 #  | Best Juice Shop Salesman Artwork | 5000 | 1 | 5000 |
- And I see end total price
+ And I see end total price 
 #  | Items | 5000 |
 #  | Delivery | 0.99 |
 #  | Promotion | 0.00 |
