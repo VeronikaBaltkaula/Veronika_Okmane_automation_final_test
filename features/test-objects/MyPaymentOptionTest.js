@@ -1,5 +1,6 @@
 const MyPaymentOptionPage = require("../page-objects/settings/MyPaymentOptionPage");
 const BasePage = require("../page-objects/common/BasePage");
+const { setTokenSourceMapRange } = require("typescript");
 
 class MyPaymentOptionTest {
     constructor(storageArg) {
@@ -22,38 +23,73 @@ class MyPaymentOptionTest {
         this.myPaymentOptionPage.buttonNewAddress().waitForDisplayed();
         this.myPaymentOptionPage.buttonNewAddress().click();
     }
+    addcreditCardInformation(cardPropertiesListArg) {
+        cardPropertiesListArg.forEach(array => {
+            this.myPaymentOptionPage.buttonNewCardName().waitForDisplayed()
+            this.myPaymentOptionPage.buttonNewCardName().click()
+            this.myPaymentOptionPage.buttonNewCardName().setValue(array[0])
+            this.myPaymentOptionPage.buttonNewCardNumber().waitForDisplayed()
+            this.myPaymentOptionPage.buttonNewCardNumber().click()
+            this.myPaymentOptionPage.buttonNewCardNumber().setValue(array[1])
+            this.myPaymentOptionPage.buttonExpirityMonth().waitForDisplayed()
+            this.myPaymentOptionPage.buttonExpirityMonth(array[2]).click()
+            this.myPaymentOptionPage.expirityMonthValue(array[2]).waitForDisplayed()
+            this.myPaymentOptionPage.expirityMonthValue(array[2]).click()
+            this.myPaymentOptionPage.exirtyYear(array[3]).waitForDisplayed()
+            this.myPaymentOptionPage.exirtyYear(array[3]).click()
+            this.myPaymentOptionPage.expiryYearValue(array[3]).waitForDisplayed()
+            this.myPaymentOptionPage.expiryYearValue(array[3]).click()
 
-    clickOnButtonNewCardName(newCardName = "John Goodman") {
+        })
+    }
+    clickOnButtonSubmit() {
+        this.myPaymentOptionPage.buttonSubmit().waitForDisplayed();
+        this.myPaymentOptionPage.buttonSubmit().click();
+    }
+    validateConfirmationMessageAboutCardInfo() {
+        this.myPaymentOptionPage.confirmationMessageAboutCardInfo().waitForDisplayed();
+    }
+    //     validateCreditCardInformation(cardPropertiesList); {
+    //         cardPropertiesListArg.forEach(obj => {
+    //             this.myPaymentOptionPage.itemRow(obj['Name']).waitForDisplayed();
+    //             this.myPaymentOptionPage.itemRow(obj['Card Number']).waitForDisplayed();
+    //             this.myPaymentOptionPage.itemRow(obj['Expirity Month']).waitForDisplayed();
+    //             this.myPaymentOptionPage.itemRow(obj['Exirty year']).waitForDisplayed();
+    //         }) see cart blabla
+    //    }
+    //}
+    //2 method
+    // clickOnButtonNewCardName(newCardName = "John Goodman") {
 
-        this.myPaymentOptionPage.buttonNewCardName().waitForDisplayed();
-        this.myPaymentOptionPage.buttonNewCardName().click();
-        this.myPaymentOptionPage.buttonNewCardName().click();
-        this.myPaymentOptionPage.buttonNewCardName().setValue(newCardName);
-    }
+    //     this.myPaymentOptionPage.buttonNewCardName().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonNewCardName().click();
+    //     this.myPaymentOptionPage.buttonNewCardName().click();
+    //     this.myPaymentOptionPage.buttonNewCardName().setValue(newCardName);
+    // }
 
-    clickOnButtonNewCardNumber(newCardNumberArg = "1234567812345678") {
-        this.myPaymentOptionPage.buttonNewCardNumber().waitForDisplayed();
-        this.myPaymentOptionPage.buttonNewCardNumber().setValue(newCardNumberArg);
-    }
-    clickOnButtonExpirityMonth() {
-        this.myPaymentOptionPage.buttonExpirityMonth().waitForDisplayed();
-        this.myPaymentOptionPage.buttonExpirityMonth().click();
+    // clickOnButtonNewCardNumber(newCardNumberArg = "1234567812345678") {
+    //     this.myPaymentOptionPage.buttonNewCardNumber().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonNewCardNumber().setValue(newCardNumberArg);
+    // }
+    // clickOnButtonExpirityMonth() {
+    //     this.myPaymentOptionPage.buttonExpirityMonth().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonExpirityMonth().click();
 
-    }
+    // }
 
-    clickOnExpirityMonthValue() {
-        this.myPaymentOptionPage.expirityMonthValue().waitForDisplayed();
-        this.myPaymentOptionPage.expirityMonthValue().click();
-    }
-    clickOnExirtyYear() {
-        this.myPaymentOptionPage.exirtyYear().waitForDisplayed();
-        this.myPaymentOptionPage.exirtyYear().click();
-    }
+    // clickOnExpirityMonthValue() {
+    //     this.myPaymentOptionPage.expirityMonthValue().waitForDisplayed();
+    //     this.myPaymentOptionPage.expirityMonthValue().click();
+    // }
+    // clickOnExirtyYear() {
+    //     this.myPaymentOptionPage.exirtyYear().waitForDisplayed();
+    //     this.myPaymentOptionPage.exirtyYear().click();
+    // }
 
-    clickExpiryYearValue() {
-        this.myPaymentOptionPage.expiryYearValue().waitForDisplayed();
-        this.myPaymentOptionPage.expiryYearValue().click();
-    }
+    // clickExpiryYearValue() {
+    //     this.myPaymentOptionPage.expiryYearValue().waitForDisplayed();
+    //     this.myPaymentOptionPage.expiryYearValue().click();
+    // }
     clickOnButtonSubmit() {
         this.myPaymentOptionPage.buttonSubmit().waitForDisplayed();
         this.myPaymentOptionPage.buttonSubmit().click();
@@ -63,41 +99,71 @@ class MyPaymentOptionTest {
         this.myPaymentOptionPage.buttonAddNewAddress().click();
 
     }
-    clickOnButtonAddNewAddressCountry(countryArg = "United States") {
-        this.myPaymentOptionPage.buttonAddNewAddressCountry().waitForDisplayed();
-        this.myPaymentOptionPage.buttonAddNewAddressCountry().click();
-        this.myPaymentOptionPage.buttonAddNewAddressCountry().setValue(countryArg);
+    addAddressInformation(addressPropertiesListArg) {
+        addressPropertiesListArg.forEach(array => {
+            //    if (array[0] === "Country") {
+            //     then }
+            this.myPaymentOptionPage.buttonAddNewAddressCountry().waitForDisplayed()
+            this.myPaymentOptionPage.buttonAddNewAddressCountry().click()
+            this.myPaymentOptionPage.buttonAddNewAddressCountry().setValue(array[0])
+            this.myPaymentOptionPage.buttonAddNewAddressName().waitForDisplayed()
+            this.myPaymentOptionPage.buttonAddNewAddressName().click()
+            this.myPaymentOptionPage.buttonAddNewAddressName().setValue(array[1])
+            this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().waitForDisplayed()
+            this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().click()
+            this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().setValue(array[2])
+            this.myPaymentOptionPage.buttonAddNewAddressZipCode().waitForDisplayed()
+            this.myPaymentOptionPage.buttonAddNewAddressZipCode().click()
+            this.myPaymentOptionPage.buttonAddNewAddressZipCode().setValue(array[3])
+            this.myPaymentOptionPage.buttonAddNewAddressAdress().waitForDisplayed()
+            this.myPaymentOptionPage.buttonAddNewAddressAdress().click()
+            this.myPaymentOptionPage.buttonAddNewAddressAdress().setValue(array[4])
+            this.myPaymentOptionPage.buttonAddNewAddressCity().waitForDisplayed()
+            this.myPaymentOptionPage.buttonAddNewAddressCity().click()
+            this.myPaymentOptionPage.buttonAddNewAddressCity().setValue(array[5])
+            this.myPaymentOptionPage.buttonAddNewAddressState().waitForDisplayed()
+            this.myPaymentOptionPage.buttonAddNewAddressState().click()
+            this.myPaymentOptionPage.buttonAddNewAddressState().setValue(array[6])
+
+        })
     }
-    clickOnButtonAddNewAddressName(addressNameArg = "John Goodman") {
-        this.myPaymentOptionPage.buttonAddNewAddressName().waitForDisplayed();
-        this.myPaymentOptionPage.buttonAddNewAddressName().click();
-        this.myPaymentOptionPage.buttonAddNewAddressName().setValue(addressNameArg);
-    }
-    clickOnButtonAddNewAddressMobileNumber(mobileNumberArg = "1234567891") {
-        this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().waitForDisplayed();
-        this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().click();
-        this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().setValue(mobileNumberArg);
-    }
-    clickOnButtonAddNewAddressZipCode(zipCoderArg = "00000") {
-        this.myPaymentOptionPage.buttonAddNewAddressZipCode().waitForDisplayed();
-        this.myPaymentOptionPage.buttonAddNewAddressZipCode().click();
-        this.myPaymentOptionPage.buttonAddNewAddressZipCode().setValue(zipCoderArg);
-    }
-    clickOnButtonAddNewAddressAdress(AddressArg = "sunset bv") {
-        this.myPaymentOptionPage.buttonAddNewAddressAdress().waitForDisplayed();
-        this.myPaymentOptionPage.buttonAddNewAddressAdress().click();
-        this.myPaymentOptionPage.buttonAddNewAddressAdress().setValue(AddressArg);
-    }
-    clickOnButtonAddNewAddressCity(cityArg = "Los Angeles") {
-        this.myPaymentOptionPage.buttonAddNewAddressCity().waitForDisplayed();
-        this.myPaymentOptionPage.buttonAddNewAddressCity().click();
-        this.myPaymentOptionPage.buttonAddNewAddressCity().setValue(cityArg);
-    }
-    clickOnButtonAddNewAddressState(stateArg = "California") {
-        this.myPaymentOptionPage.buttonAddNewAddressState().waitForDisplayed();
-        this.myPaymentOptionPage.buttonAddNewAddressState().click();
-        this.myPaymentOptionPage.buttonAddNewAddressState().setValue(stateArg);
-    }
+
+    //2 method
+    // clickOnButtonAddNewAddressCountry(countryArg = "United States") {
+    //     this.myPaymentOptionPage.buttonAddNewAddressCountry().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonAddNewAddressCountry().click();
+    //     this.myPaymentOptionPage.buttonAddNewAddressCountry().setValue(countryArg);
+    // }
+    // clickOnButtonAddNewAddressName(addressNameArg = "John Goodman") {
+    //     this.myPaymentOptionPage.buttonAddNewAddressName().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonAddNewAddressName().click();
+    //     this.myPaymentOptionPage.buttonAddNewAddressName().setValue(addressNameArg);
+    // }
+    // clickOnButtonAddNewAddressMobileNumber(mobileNumberArg = "1234567891") {
+    //     this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().click();
+    //     this.myPaymentOptionPage.buttonAddNewAddressMobileNumber().setValue(mobileNumberArg);
+    // }
+    // clickOnButtonAddNewAddressZipCode(zipCoderArg = "00000") {
+    //     this.myPaymentOptionPage.buttonAddNewAddressZipCode().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonAddNewAddressZipCode().click();
+    //     this.myPaymentOptionPage.buttonAddNewAddressZipCode().setValue(zipCoderArg);
+    // }
+    // clickOnButtonAddNewAddressAdress(AddressArg = "sunset bv") {
+    //     this.myPaymentOptionPage.buttonAddNewAddressAdress().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonAddNewAddressAdress().click();
+    //     this.myPaymentOptionPage.buttonAddNewAddressAdress().setValue(AddressArg);
+    // }
+    // clickOnButtonAddNewAddressCity(cityArg = "Los Angeles") {
+    //     this.myPaymentOptionPage.buttonAddNewAddressCity().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonAddNewAddressCity().click();
+    //     this.myPaymentOptionPage.buttonAddNewAddressCity().setValue(cityArg);
+    // }
+    // clickOnButtonAddNewAddressState(stateArg = "California") {
+    //     this.myPaymentOptionPage.buttonAddNewAddressState().waitForDisplayed();
+    //     this.myPaymentOptionPage.buttonAddNewAddressState().click();
+    //     this.myPaymentOptionPage.buttonAddNewAddressState().setValue(stateArg);
+    // }
     clickOnButtonAddNewAddressSubmit() {
         this.myPaymentOptionPage.buttonAddNewAddressSubmit().waitForDisplayed();
         this.myPaymentOptionPage.buttonAddNewAddressSubmit().click();
@@ -170,8 +236,15 @@ class MyPaymentOptionTest {
         browser.pause(2000)
         this.myPaymentOptionPage.waitForLoad();
     }
-
+    validateOrderCompletionPage() {
+    this.myPaymentOptionPage.waitForLoad();
+        
+    }
     validateCorrectOrderAddress() {
+        // correctAddress.forEach(array => {
+            // this.myPaymentOptionPage.correctAddress(array[o], array[1], 
+            //     array[2], array[2]).waitForDisplayed();
+            //  })
         this.myPaymentOptionPage.waitForLoad();
     }
 

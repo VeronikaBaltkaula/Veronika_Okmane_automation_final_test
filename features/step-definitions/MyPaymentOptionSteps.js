@@ -1,22 +1,26 @@
-const { When } = require('@wdio/cucumber-framework');
+const { When, Then } = require('@wdio/cucumber-framework');
 
 When(/^I click add new card button$/, function () {
     this.myPaymentOptionTest.clickOnButtonNewCard();
 });
 
-When(/^I fill in credit card information and submit$/, function () {
-    this.myPaymentOptionTest.clickOnButtonNewCardName();
-    this.myPaymentOptionTest.clickOnButtonNewCardNumber();
-    this.myPaymentOptionTest.clickOnButtonExpirityMonth();
-    this.myPaymentOptionTest.clickOnExpirityMonthValue();
-    this.myPaymentOptionTest.clickOnExirtyYear();
-    this.myPaymentOptionTest.clickExpiryYearValue();
+// 2 method 
+//When(/^I fill in credit card information and submit$/, function () {
+//     this.myPaymentOptionTest.clickOnButtonNewCardName();
+//     this.myPaymentOptionTest.clickOnButtonNewCardNumber();
+//     this.myPaymentOptionTest.clickOnButtonExpirityMonth();
+//     this.myPaymentOptionTest.clickOnExpirityMonthValue();
+//     this.myPaymentOptionTest.clickOnExirtyYear();
+//     this.myPaymentOptionTest.clickExpiryYearValue();
+//     this.myPaymentOptionTest.clickOnButtonSubmit();
+// });
+When(/^I fill in credit card information and submit$/, function (creditCardInformation) {
+    this.myPaymentOptionTest.addcreditCardInformation(creditCardInformation.rows())
     this.myPaymentOptionTest.clickOnButtonSubmit();
-});
-
+})
 
 When(/^I see confirmation message about card info$/, function () {
-    this.myPaymentOptionTest.validateconfirmationMessageAboutCardInfo();
+    this.myPaymentOptionTest.validateConfirmationMessageAboutCardInfo();
 });
 
 
@@ -28,17 +32,21 @@ When(/^I click on 'My Saved Addresses' option$/, function () {
 When(/^I click on new Address button$/, function () {
     this.myPaymentOptionTest.clickOnButtonAddNewAddress();
 });
-
-When(/^I add address information and submit$/, function () {
-    this.myPaymentOptionTest.clickOnButtonAddNewAddressCountry();
-    this.myPaymentOptionTest.clickOnButtonAddNewAddressName();
-    this.myPaymentOptionTest.clickOnButtonAddNewAddressMobileNumber();
-    this.myPaymentOptionTest.clickOnButtonAddNewAddressZipCode();
-    this.myPaymentOptionTest.clickOnButtonAddNewAddressAdress();
-    this.myPaymentOptionTest.clickOnButtonAddNewAddressCity();
-    this.myPaymentOptionTest.clickOnButtonAddNewAddressState();
+When(/^I add address information and submit$/, function (addressInformation) {
+    this.myPaymentOptionTest.addAddressInformation(addressInformation.rows());
     this.myPaymentOptionTest.clickOnButtonAddNewAddressSubmit();
-});
+})
+//2 method
+// When(/^I add address information and submit$/, function () {
+//     this.myPaymentOptionTest.clickOnButtonAddNewAddressCountry();
+//     this.myPaymentOptionTest.clickOnButtonAddNewAddressName();
+//     this.myPaymentOptionTest.clickOnButtonAddNewAddressMobileNumber();
+//     this.myPaymentOptionTest.clickOnButtonAddNewAddressZipCode();
+//     this.myPaymentOptionTest.clickOnButtonAddNewAddressAdress();
+//     this.myPaymentOptionTest.clickOnButtonAddNewAddressCity();
+//     this.myPaymentOptionTest.clickOnButtonAddNewAddressState();
+//     this.myPaymentOptionTest.clickOnButtonAddNewAddressSubmit();
+// });
 
 When(/^I add 'Best Juice Shop Salesman Artwork' to basket and checkout$/, function () {
     this.myPaymentOptionTest.clickOnButtonJuiceShop();
@@ -74,6 +82,7 @@ When(/^I am in order completion page$/, function () {
 
 When(/^I see correct order address$/, function () {
     this.myPaymentOptionTest.validateCorrectOrderAddress();
+   // this.myPaymentOptionTest.validateCorrectOrderAddress(correctAddress.rows());
 });
 
 When(/^I see order details$/, function () {

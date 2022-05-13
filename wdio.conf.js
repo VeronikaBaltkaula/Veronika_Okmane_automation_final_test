@@ -3,7 +3,6 @@ const NavigationTest = require("./features/test-objects/NavigationTest");
 const OtherTest = require("./features/test-objects/OtherTest");
 const RegisterTest = require("./features/test-objects/RegisterTest");
 const MyPaymentOptionTest = require("./features/test-objects/MyPaymentOptionTest")
-//const ShoppingTest = require("./features/test-objects/ShoppingTest")
 const Storage = require("./features/support/data/Storage");
 exports.config = {
     //
@@ -270,13 +269,12 @@ exports.config = {
      */
     beforeScenario: function (world, context) {
         const storage = new Storage();
-        // context.customerServiceTest = new CustomerServiceTest(storage);
         context.navigationTest = new NavigationTest(storage);
         context.loginTest = new LoginTest(storage);
         context.otherTest = new OtherTest(storage);
         context.registerTest = new RegisterTest(storage);
         context.myPaymentOptionTest = new MyPaymentOptionTest(storage);
-        // context.shoppingTest = new ShoppingTest(storage);
+       
     },
     /**
      *

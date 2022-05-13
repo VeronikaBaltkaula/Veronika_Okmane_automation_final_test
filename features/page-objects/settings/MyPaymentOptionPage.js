@@ -31,6 +31,23 @@ class MyPaymentOptionPage extends BasePage {
         this.buttonChooseSavedCard = () => browser.$('//mat-row[descendant-or-self::mat-cell[contains(text(), "John")]]//mat-radio-button');
         this.buttonContinueCard = () => browser.$('//span[contains(text(), "Continue")]');
         this.buttonPlaceOrderAndPay = () => browser.$('[aria-label="Complete your purchase"]');
+
+        this.itemRow = (nameArg,  cardNumberArg, expirityMonthArg, exirtyYearArg ) => browser.$(`//mat-label[contains(text(), "Name")]//ancestor::div[contains(@class,"form-field")]//input, "${nameArg}")]
+        //mat-label[contains(text(), "Card Number")]//ancestor::div[contains(@class,"form-field")]//input,"${cardNumberArg}")]
+        //mat-label[contains(text(), "Expiry Month")]//ancestor::div[contains(@class,"form-field")]//select,"${expirityMonthArg}")]
+        //mat-label[contains(text(), "Expiry Year")]//ancestor::div[contains(@class,"form-field")]//select,"${exirtyYearArg}")]]`);
+       
+        this.itemRow = (countryArg,  nameArg, mobileNumberArg, zipCodeArg, addressArg, cityArg, stateArg ) => browser.$(`//mat-label[contains(text(), "Country")]//ancestor::div[contains(@class,"form-field")]//input, "${countryArg}")]
+        //mat-label[contains(text(), "Name")]//ancestor::div[contains(@class,"form-field")]//input,"${nameArg}")]
+        //mat-label[contains(text(), "Mobile Number")]//ancestor::div[contains(@class,"form-field")]//input,"${mobileNumberArg}")]
+        //mat-label[contains(text(), "ZIP Code")]//ancestor::div[contains(@class,"form-field")]//input,"${zipCodeArg}")]
+        #address,"${addressArg}")]//mat-label[contains(text(), "City")]//ancestor::div[contains(@class,"form-field")]//input,"${cityArg}")]
+        //mat-label[contains(text(), "State")]//ancestor::div[contains(@class,"form-field")]//input,"${stateArg}")]]`);
+         
+        // this.correctAddress = (productArg, priceArg, quantityArg, totalPriceArg) => browser.$(`(//*[contains(@role, "cell")])[1],"${productArg}")]
+        // (//*[contains(@role, "cell")])[2], "${priceArg}")]
+        // (//*[contains(@role, "cell")])[3], "${quantityArg}")]
+        // (//*[contains(@role, "cell")])[4], "${totalPriceArg}")]]`);
     }
 }
 
